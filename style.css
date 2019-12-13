@@ -1,0 +1,74 @@
+html, body {
+	height: 100%;
+}
+body {
+    /* Центрирование игрового поля */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.field {
+	width: 400px;
+	height: 400px;
+	background: linear-gradient(to top, #ff00a7, #f1da36);
+	border-radius: 5px;
+    /* для позиционирвоания ячеек относительно игрового поля */
+	position: relative;
+}
+
+.field__cell {
+	width: 81.25px;
+	height: 81.25px;
+	position: absolute;
+	border-radius: 3px;
+}
+.field__cell--null {
+	background-color: #764B8E;
+}
+
+.field__cell--tile {
+	background-color: black;
+	color: white;
+	
+	font-size: 42px;
+	font-weight: bold;/*Устанавливает насыщенность шрифта*/
+
+    /*центрирование числа на костяжке*/
+	display: flex;
+	justify-content: center;
+	align-items: center;/*выравнивает флекс-элементы внутри контейнера*/
+
+	transition: left 0.5s ease, top 0.5s ease;
+}
+
+#modal {
+    /* размеры равные размеру родителя, то есть игрового поля */
+    height: 100%;
+    width: 100%;
+    /* наследование радиуса границ */ 
+    border-radius: inherit;
+    /* невидимость */
+    visibility: hidden;
+    opacity: 0;
+    
+    transition: opacity 1s ease;
+    
+    /* вывод блока на передний план */
+    position: relative;
+    z-index: 1;
+    
+    /* центрирование сообщения */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* цвета и размер шрифта */
+    background: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 72px;
+}
+#modal.modal--visible{
+    visibility: visible;
+    opacity: 1;
+}
